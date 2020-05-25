@@ -1,4 +1,6 @@
-public class Vector {
+import java.util.Comparator;
+
+public class Vector implements Comparable<Vector> {
 
     private int xComp, yComp, zComp;
     private static final char sep = ',', lBrace = '<', rBrace = '>';
@@ -74,8 +76,15 @@ public class Vector {
         return null;
     }
 
+
     @Override
     public String toString() {
         return lBrace + String.valueOf(xComp) + sep + String.valueOf(yComp) + sep + String.valueOf(zComp) + rBrace;
+    }
+
+
+    @Override
+    public int compareTo(Vector o) {
+        return (int) (this.getMagnitude() - o.getMagnitude());
     }
 }
