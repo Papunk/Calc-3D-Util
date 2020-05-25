@@ -59,9 +59,6 @@ public class Vector {
         return dotProduct(v1, v2) == 0;
     }
 
-
-
-
     public static Vector stringToVector(String vector) {
         if (vector.startsWith(String.valueOf(lBrace)) && vector.endsWith(String.valueOf(rBrace))) {
             if (vector.length() > 3) {
