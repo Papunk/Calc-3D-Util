@@ -1,17 +1,15 @@
-import java.util.Comparator;
-
 public class Vector implements Comparable<Vector> {
 
-    private int xComp, yComp, zComp;
-    private static final char sep = ',', lBrace = '<', rBrace = '>';
+    private double xComp, yComp, zComp;
+    private static final String sep = ",", lBrace = "<", rBrace = ">";
 
-    public int getxComp() {
+    public double getxComp() {
         return xComp;
     }
-    public int getyComp() {
+    public double getyComp() {
         return yComp;
     }
-    public int getzComp() {
+    public double getzComp() {
         return zComp;
     }
 
@@ -28,7 +26,7 @@ public class Vector implements Comparable<Vector> {
         }
     }
 
-    public Vector(int xComp, int yComp, int zComp) {
+    public Vector(double xComp, double yComp, double zComp) {
         this.xComp = xComp;
         this.yComp = yComp;
         this.zComp = zComp;
@@ -39,6 +37,15 @@ public class Vector implements Comparable<Vector> {
         return Math.sqrt(Math.pow(this.xComp, 2) + Math.pow(this.yComp, 2) + Math.pow(this.zComp, 2));
     }
 
+    public void multiplyByScalar(int magnitude) {
+        this.xComp *= magnitude;
+        this.yComp *= magnitude;
+        this.zComp *= magnitude;
+    }
+
+    public Vector getUnitVector() {
+        return new Vector(this.xComp / this.getMagnitude(),this.yComp / this.getMagnitude(), this.zComp / this.getMagnitude());
+    }
 
     // STATIC METHODS
 
@@ -46,14 +53,14 @@ public class Vector implements Comparable<Vector> {
         return Math.toDegrees(Math.acos(dotProduct(v1, v2) / (v1.getMagnitude() * v2.getMagnitude())));
     }
 
-    public static int dotProduct(Vector v1, Vector v2) {
+    public static double dotProduct(Vector v1, Vector v2) {
         return (v1.getxComp() * v2.getxComp()) + (v1.getyComp() * v2.getyComp()) + (v1.getzComp() * v2.getzComp());
     }
 
     public static Vector crossProduct(Vector v1, Vector v2) {
-        int x = v1.getyComp()*v2.getzComp() - v1.getzComp()*v2.getyComp();
-        int y = v1.getzComp()*v2.getxComp() - v1.getxComp()*v2.getzComp();
-        int z = v1.getxComp()*v2.getyComp() - v1.getyComp()*v2.getxComp();
+        double x = v1.getyComp()*v2.getzComp() - v1.getzComp()*v2.getyComp();
+        double y = v1.getzComp()*v2.getxComp() - v1.getxComp()*v2.getzComp();
+        double z = v1.getxComp()*v2.getyComp() - v1.getyComp()*v2.getxComp();
         return new Vector(x, y, z);
     }
 
@@ -61,11 +68,11 @@ public class Vector implements Comparable<Vector> {
         return dotProduct(v1, v2) == 0;
     }
 
-    public static Vector stringToVector(String vector) {
-        if (vector.startsWith(String.valueOf(lBrace)) && vector.endsWith(String.valueOf(rBrace))) {
+    public static Vector stringToVector(String vector) throws NumberFormatException{
+        if (vector.startsWith(lBrace) && vector.endsWith(rBrace)) {
             if (vector.length() > 3) {
                 vector = vector.substring(1, vector.length() - 1);
-                String[] components = vector.split(String.valueOf(sep));
+                String[] components = vector.split(sep);
                 int[] numericComps = new int[components.length];
                 for (int i = 0; i < components.length; i++) {
                     numericComps[i] = Integer.valueOf(components[i]);
@@ -79,7 +86,7 @@ public class Vector implements Comparable<Vector> {
 
     @Override
     public String toString() {
-        return lBrace + String.valueOf(xComp) + sep + String.valueOf(yComp) + sep + String.valueOf(zComp) + rBrace;
+        return lBrace + xComp + sep + yComp + sep + zComp + rBrace;
     }
 
 
