@@ -19,6 +19,7 @@ public class Plane {
         this.normalVector = normalVector;
     }
 
+
     /**
      * @param point point to be compared
      * @return true if point is in plane, false otherwise
