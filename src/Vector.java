@@ -1,7 +1,6 @@
 public class Vector implements Comparable<Vector> {
 
     private double xComp, yComp, zComp;
-    private static final String sep = ",", lBrace = "<", rBrace = ">";
 
     public double getxComp() {
         return xComp;
@@ -30,6 +29,12 @@ public class Vector implements Comparable<Vector> {
         this.xComp = xComp;
         this.yComp = yComp;
         this.zComp = zComp;
+    }
+
+    public Vector(Point endPoint) {
+        this.xComp = endPoint.x;
+        this.yComp = endPoint.y;
+        this.zComp = endPoint.z;
     }
 
     // METHODS
@@ -107,10 +112,10 @@ public class Vector implements Comparable<Vector> {
      * @throws NumberFormatException for vectors with incorrect format
      */
     public static Vector stringToVector(String vector) throws NumberFormatException {
-        if (vector.startsWith(lBrace) && vector.endsWith(rBrace)) {
+        if (vector.startsWith(Calc.lBrace) && vector.endsWith(Calc.rBrace)) {
             if (vector.length() > 3) {
                 vector = vector.substring(1, vector.length() - 1);
-                String[] components = vector.split(sep);
+                String[] components = vector.split(Calc.sep);
                 int[] numericComps = new int[components.length];
                 for (int i = 0; i < components.length; i++) {
                     numericComps[i] = Integer.parseInt(components[i]);
@@ -124,7 +129,7 @@ public class Vector implements Comparable<Vector> {
 
     @Override
     public String toString() {
-        return lBrace + xComp + sep + yComp + sep + zComp + rBrace;
+        return Calc.lBrace + xComp + Calc.sep + yComp + Calc.sep + zComp + Calc.rBrace;
     }
 
 

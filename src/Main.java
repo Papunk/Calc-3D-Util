@@ -1,8 +1,12 @@
 public class Main {
 
     public static void main(String[] args) {
-	    Vector v1 = new Vector("<5,2,5>");
-        Vector v2 = new Vector("<5,4,0>");
-        System.out.println(v1.getUnitVector());
+	    Vector v = new Vector(1,0,0);
+	    Point pt = new Point(0,0,1);
+	    try {
+            Plane pn = new Plane(v, pt);
+        } catch (Exception e) {
+	        e.printStackTrace();
+        }
     }
 }

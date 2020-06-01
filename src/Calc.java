@@ -1,4 +1,11 @@
-public class MathUtility {
+public class Calc {
+
+    public static final String
+            sep = ",",
+            lBrace = "<", rBrace = ">",
+            lPar = "(", rPar = ")",
+            equals = "=", plus = "+", minus = "-",
+            x = "x", y = "y", z = "z";
 
 
     /**
