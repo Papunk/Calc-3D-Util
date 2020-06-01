@@ -20,6 +20,7 @@ public class Plane {
     }
 
 
+
     /**
      * @param point point to be compared
      * @return true if point is in plane, false otherwise
