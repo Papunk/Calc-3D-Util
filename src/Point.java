@@ -8,6 +8,7 @@ public class Point {
         this.z = z;
     }
 
+    // unfinished
     public double distanceFromOrigin() {
         return 0.0;
     }
