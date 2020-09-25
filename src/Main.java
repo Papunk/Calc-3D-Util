@@ -1,12 +1,8 @@
 public class Main {
 
     public static void main(String[] args) {
-	    Vector v = new Vector(1,0,0);
-	    Point pt = new Point(0,0,1);
-	    try {
-            Plane pn = new Plane(v, pt);
-        } catch (Exception e) {
-	        e.printStackTrace();
-        }
+        Vector v1 = new Vector(1,-5,4),
+                v2 = new Vector(4,4,-3);
+        System.out.println(Vector.getAngle(v1, v2));
     }
 }
