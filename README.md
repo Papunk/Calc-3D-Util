@@ -1,4 +1,4 @@
-# Calc-3D-Util
+# Math Object Utility
 Classes to model mathematical objects in 3D space like points, vectors, planes, etc.
 
 ## These classes can model:
