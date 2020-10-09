@@ -1,5 +1,8 @@
 public class Vector implements Comparable<Vector> {
 
+
+    //TODO: Redefine this class as a subclass of matrix
+
     private double xComp, yComp, zComp;
 
     public double getxComp() {
