@@ -43,10 +43,33 @@ public class Matrix {
         return true;
     }
 
-    public static Matrix multiply() {
-        return null;
+    public static Matrix add(Matrix m1, Matrix m2) {
+        if (m1.getHeight() == m2.getHeight() && m1.getWidth() == m2.getWidth()) {
+            Matrix m = new Matrix(m1.getHeight(), m1.getWidth());
+            for (int i = 0; i < m.getHeight(); i++) {
+                for (int j = 0; j < m.getWidth(); j++) {
+                    m.setValue(i, j, m1.getValue(i, j) * m2.getValue(i, j));
+                }
+            }
+            return m;
+        } else {
+            return null;
+        }
     }
 
+    public void setValue(int row, int col, Double newValue) {
+        matrix[row][col] = newValue;
+    }
 
+    public Double getValue(int row, int col) {
+        return matrix[row][col];
+    }
 
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth() {
+        return width;
+    }
 }
