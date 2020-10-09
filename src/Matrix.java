@@ -27,8 +27,26 @@ public class Matrix {
     }
 
     public Boolean isDiagonal() {
+        if (!this.isSquare()) // only a square matrix can be diagonal
+            return false;
+
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                if (i == j && matrix[i][j] == 0) { // values within the diagonal must not be zero
+                    return false;
+                }
+                if (i != j && matrix[i][j] != 0){ // values outside the diagonal must be zero
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public static Matrix multiply() {
         return null;
     }
+
 
 
 }
