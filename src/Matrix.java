@@ -5,6 +5,8 @@ public class Matrix {
     private int height, width;
     private Double[][] matrix;
 
+    // Constructors
+
     public Matrix(int height, int width) {
         this.height = height;
         this.width = width;
@@ -21,6 +23,8 @@ public class Matrix {
             this.matrix = matrix;
         }
     }
+
+    // Methods
 
     public Boolean isSquare() {
         return height == width;
@@ -43,6 +47,16 @@ public class Matrix {
         return true;
     }
 
+    public void multiplyByScalar(Double scalar) {
+        for (int i = 0; i < height; i++) {
+            for (int j = 0; j < width; j++) {
+                matrix[i][j] *= scalar;
+            }
+        }
+    }
+
+    // Static Methods
+
     public static Matrix add(Matrix m1, Matrix m2) {
         if (m1.getHeight() == m2.getHeight() && m1.getWidth() == m2.getWidth()) {
             Matrix m = new Matrix(m1.getHeight(), m1.getWidth());
@@ -56,6 +70,22 @@ public class Matrix {
             return null;
         }
     }
+
+//    public static Matrix multiply(Matrix m1, Matrix m2) {
+//        if (m1.getWidth() == m2.getHeight()) {
+//            Matrix m = new Matrix(m1.getHeight(), m2.getWidth());
+//            for (int i = 0; i < m.getHeight(); i++) {
+//                for (int j = 0; j < m.getWidth(); j++) {
+//                    m.setValue(i, j, m1.getValue(i, j) * m2.getValue(i, j));
+//                }
+//            }
+//            return m;
+//        } else {
+//            return null;
+//        }
+//    }
+
+    // Setters and Getters
 
     public void setValue(int row, int col, Double newValue) {
         matrix[row][col] = newValue;
