@@ -3,20 +3,20 @@ import java.util.Arrays;
 public class Matrix {
 
     private int height, width;
-    private Double[][] matrix;
+    private double[][] matrix;
 
     // Constructors
 
     public Matrix(int height, int width) {
         this.height = height;
         this.width = width;
-        this.matrix = new Double[height][width];
-        for (Double[] vector: this.matrix) {
+        this.matrix = new double[height][width];
+        for (double[] vector: this.matrix) {
             Arrays.fill(vector, 0);
         }
     }
 
-    public Matrix (Double[][] matrix) {
+    public Matrix (double[][] matrix) {
         if (matrix.length > 0 && matrix[0].length > 0){
             this.height = matrix.length;
             this.width = matrix[0].length;
@@ -47,7 +47,7 @@ public class Matrix {
         return true;
     }
 
-    public void multiplyByScalar(Double scalar) {
+    public void multiplyByScalar(double scalar) {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 matrix[i][j] *= scalar;
@@ -87,11 +87,11 @@ public class Matrix {
 
     // Setters and Getters
 
-    public void setValue(int row, int col, Double newValue) {
+    public void setValue(int row, int col, double newValue) {
         matrix[row][col] = newValue;
     }
 
-    public Double getValue(int row, int col) {
+    public double getValue(int row, int col) {
         return matrix[row][col];
     }
 
