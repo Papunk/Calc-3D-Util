@@ -17,12 +17,26 @@ public class Matrix {
         }
     }
 
-    public Matrix (double[][] matrix) {
+    public Matrix(double[][] matrix) {
         if (matrix.length > 0 && matrix[0].length > 0){
             this.height = matrix.length;
             this.width = matrix[0].length;
             this.matrix = matrix;
         }
+    }
+
+    public Matrix(Vector[] vectorList) throws VectorTypeMismatch{
+        boolean vectorType = vectorList[0].isColumnVector();
+        for (Vector v: vectorList) {
+            if (vectorType != v.isColumnVector()) {
+                throw new VectorTypeMismatch();
+            }
+        }
+
+        //TODO complete this method
+
+
+
     }
 
     // Methods
@@ -119,6 +133,12 @@ public class Matrix {
     public static class MatrixDimensionMismatch extends Exception {
         public MatrixDimensionMismatch(String operation) {
             super("Matrices are not of compatible size for this operation: " + operation);
+        }
+    }
+
+    public static class VectorTypeMismatch extends Exception {
+        public VectorTypeMismatch() {
+            super("Cannot mix column and row vectors");
         }
     }
 }
