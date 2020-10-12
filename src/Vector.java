@@ -31,9 +31,11 @@ public class Vector extends Matrix {
     }
 
     public void setValueAt(int n, double value) {
-        if (isColumnVector()) {
+        matrix[isColumnVector()? n:1][isColumnVector()? 1:n] = value;
+    }
 
-        }
+    public double getValueAt(int n, double value) {
+        return isColumnVector()? matrix[n][1]:matrix[1][n];
     }
 
 }

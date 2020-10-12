@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Matrix {
 
     private int height, width;
-    private double[][] matrix;
+    protected double[][] matrix;
 
     // Constructors
 
