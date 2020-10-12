@@ -1,8 +1,5 @@
 public class Vector3d implements Comparable<Vector3d> {
 
-
-    //TODO: Redefine this class as a subclass of matrix
-
     private double xComp, yComp, zComp;
 
     public double getxComp() {

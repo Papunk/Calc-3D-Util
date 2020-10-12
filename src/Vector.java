@@ -15,6 +15,9 @@ public class Vector extends Matrix {
 
     // Methods
 
+    /**
+     * @return magnitude of this vector
+     */
     public double getMagnitude() {
         double sum = 0;
         for (double elem: this.asList()) {
@@ -25,14 +28,29 @@ public class Vector extends Matrix {
 
     // Static Methods
 
-    public static Vector dotProduct(Vector v1, Vector v2) {
+    /**
+     * @param v1 first vector
+     * @param v2 second vector
+     * @return returns the dot product of the given vectors
+     */
+    public static double dotProduct(Vector v1, Vector v2) {
         if (Matrix.sameDimensions(v1, v2)) {
             double sum = 0;
             for (int i = 0; i < v1.getHeight(); i++) {
                 sum += v1.getValueAt(i) * v2.getValueAt(i);
             }
+            return sum;
         }
-        return null;
+        return 0; //TODO throw error
+    }
+
+    /**
+     * @param v1 first vector
+     * @param v2 second vector
+     * @return true if the vectors are perpendicular and false otherwise
+     */
+    public static boolean arePerpendicular(Vector v1, Vector v2) {
+        return dotProduct(v1, v2) == 0;
     }
 
     // Setters and Getters
@@ -53,6 +71,9 @@ public class Vector extends Matrix {
         return isColumnVector()? matrix[n][1]:matrix[1][n];
     }
 
+    /**
+     * @return a list of length n containing the elements of this n-vector
+     */
     public double[] asList() {
         double[] list = new double[this.length];
         int listIndex = 0;
