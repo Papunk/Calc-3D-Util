@@ -1,7 +1,7 @@
 public class Vector extends Matrix {
 
-    private boolean columnVector;
-    private int length;
+    private final boolean columnVector;
+    private final int length;
 
     public Vector(int n, boolean columnVector) {
         super(columnVector? n:1, columnVector? 1:n);
@@ -9,9 +9,17 @@ public class Vector extends Matrix {
         this.length = n;
     }
 
-    public Vector(double[][] matrix) {
-        super(matrix);
+    public Vector(double[] list, boolean columnVector) {
+        this(list.length, columnVector);
+        int listIndex = 0;
+        for (int i = 0; i < getHeight(); i++) {
+            for (int j = 0; j < getWidth(); j++) {
+                matrix[i][j] = list[listIndex];
+                listIndex++;
+            }
+        }
     }
+
 
     // Methods
 
@@ -80,6 +88,7 @@ public class Vector extends Matrix {
         for (int i = 0; i < getHeight(); i++) {
             for (int j = 0; j < getWidth(); j++) {
                 list[listIndex] = matrix[i][j];
+                listIndex++;
             }
         }
         return list;
