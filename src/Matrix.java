@@ -1,3 +1,4 @@
+import java.lang.reflect.MalformedParameterizedTypeException;
 import java.util.Arrays;
 
 public class Matrix {
@@ -64,8 +65,14 @@ public class Matrix {
 
     // Static Methods
 
-    public static Matrix add(Matrix m1, Matrix m2) {
-        if (m1.getHeight() == m2.getHeight() && m1.getWidth() == m2.getWidth()) {
+    /**
+     * @param m1 first matrix
+     * @param m2 second matrix
+     * @return a matrix containing the added elements of m1 and m2
+     * @throws MatrixDimensionMismatch when the matrices are not of equaldimension
+     */
+    public static Matrix add(Matrix m1, Matrix m2) throws MatrixDimensionMismatch{
+        if (Matrix.sameDimensions(m1, m2)) {
             Matrix m = new Matrix(m1.getHeight(), m1.getWidth());
             for (int i = 0; i < m.getHeight(); i++) {
                 for (int j = 0; j < m.getWidth(); j++) {
@@ -74,7 +81,7 @@ public class Matrix {
             }
             return m;
         } else {
-            return null;
+            throw new MatrixDimensionMismatch("Matrix Addition");
         }
     }
 
@@ -106,5 +113,13 @@ public class Matrix {
 
     public int getWidth() {
         return width;
+    }
+
+    // Internal classes
+
+    public static class MatrixDimensionMismatch extends Exception {
+        public MatrixDimensionMismatch(String operation) {
+            super("Matrices are not of compatible size for this operation: " + operation);
+        }
     }
 }
