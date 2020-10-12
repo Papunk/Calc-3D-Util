@@ -1,21 +1,21 @@
 public class Plane {
 
-    private Vector normalVector;
+    private Vector3d normalVector;
     private Point point;
 
-    public Vector getNormalVector() {
+    public Vector3d getNormalVector() {
         return normalVector;
     }
 
-    public Plane(Vector normalVector, Point point) throws InvalidPlaneException {
-        if (Vector.arePerpendicular(normalVector, new Vector(point))) {
+    public Plane(Vector3d normalVector, Point point) throws InvalidPlaneException {
+        if (Vector3d.arePerpendicular(normalVector, new Vector3d(point))) {
             this.normalVector = normalVector;
             this.point = point;
         }
         else throw new InvalidPlaneException();
     }
 
-    public Plane(Vector normalVector) {
+    public Plane(Vector3d normalVector) {
         this.normalVector = normalVector;
     }
 
@@ -26,7 +26,7 @@ public class Plane {
      * @return true if point is in plane, false otherwise
      */
     public boolean planeContains(Point point) {
-        return Vector.arePerpendicular(normalVector, new Vector(point));
+        return Vector3d.arePerpendicular(normalVector, new Vector3d(point));
     }
 
 

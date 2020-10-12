@@ -11,8 +11,8 @@ public class Matrix {
         this.height = height;
         this.width = width;
         this.matrix = new double[height][width];
-        for (double[] vector: this.matrix) {
-            Arrays.fill(vector, 0);
+        for (double[] row: this.matrix) {
+            Arrays.fill(row, 0);
         }
     }
 
@@ -55,6 +55,13 @@ public class Matrix {
         }
     }
 
+    public Matrix transverse() {
+
+
+
+        return null;
+    }
+
     // Static Methods
 
     public static Matrix add(Matrix m1, Matrix m2) {
@@ -62,7 +69,7 @@ public class Matrix {
             Matrix m = new Matrix(m1.getHeight(), m1.getWidth());
             for (int i = 0; i < m.getHeight(); i++) {
                 for (int j = 0; j < m.getWidth(); j++) {
-                    m.setValue(i, j, m1.getValue(i, j) * m2.getValue(i, j));
+                    m.setValueAt(i, j, m1.getValueAt(i, j) * m2.getValueAt(i, j));
                 }
             }
             return m;
@@ -71,27 +78,25 @@ public class Matrix {
         }
     }
 
-//    public static Matrix multiply(Matrix m1, Matrix m2) {
-//        if (m1.getWidth() == m2.getHeight()) {
-//            Matrix m = new Matrix(m1.getHeight(), m2.getWidth());
-//            for (int i = 0; i < m.getHeight(); i++) {
-//                for (int j = 0; j < m.getWidth(); j++) {
-//                    m.setValue(i, j, m1.getValue(i, j) * m2.getValue(i, j));
-//                }
-//            }
-//            return m;
-//        } else {
-//            return null;
-//        }
-//    }
+    public static Matrix multiply(Matrix m1, Matrix m2) {
+        if (m1.getWidth() == m2.getHeight()) {
+          return null;
+        } else {
+            return null;
+        }
+    }
+
+    public static boolean sameDimensions(Matrix m1, Matrix m2) {
+        return m1.getHeight() == m2.getHeight() && m1.getWidth() == m2.getWidth();
+    }
 
     // Setters and Getters
 
-    public void setValue(int row, int col, double newValue) {
+    public void setValueAt(int row, int col, double newValue) {
         matrix[row][col] = newValue;
     }
 
-    public double getValue(int row, int col) {
+    public double getValueAt(int row, int col) {
         return matrix[row][col];
     }
 
