@@ -87,10 +87,9 @@ public class Matrix {
 
     public static Matrix multiply(Matrix m1, Matrix m2) {
         if (m1.getWidth() == m2.getHeight()) {
-          return null;
-        } else {
-            return null;
+            Matrix m = new Matrix(m1.getHeight(), m2.getWidth());
         }
+        return null;
     }
 
     public static boolean sameDimensions(Matrix m1, Matrix m2) {
