@@ -6,3 +6,5 @@ public class Main {
         System.out.println(Vector3d.getAngle(v1, v2));
     }
 }
+
+//TODO Test all classes

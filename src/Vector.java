@@ -15,6 +15,7 @@ public class Vector extends Matrix {
         if (Matrix.sameDimensions(v1, v2)) {
             double sum = 0;
             for (int i = 0; i < v1.getHeight(); i++) {
+                sum += v1.getValueAt(i) * v2.getValueAt(i);
             }
         }
         return null;
@@ -34,7 +35,7 @@ public class Vector extends Matrix {
         matrix[isColumnVector()? n:1][isColumnVector()? 1:n] = value;
     }
 
-    public double getValueAt(int n, double value) {
+    public double getValueAt(int n) {
         return isColumnVector()? matrix[n][1]:matrix[1][n];
     }
 
