@@ -118,6 +118,11 @@ public class Matrix {
         return m1.getHeight() == m2.getHeight() && m1.getWidth() == m2.getWidth();
     }
 
+
+    public Vector[] asVectorList() {
+        return null;
+    }
+
     // Setters and Getters
 
     public void setValueAt(int row, int col, double newValue) {

@@ -62,8 +62,9 @@ public class Vector extends Matrix {
      * @param v1 first vector
      * @param v2 second vector
      * @return true if the vectors are perpendicular and false otherwise
+     * @throws Matrix.MatrixDimensionMismatch when vectors are of different length
      */
-    public static boolean arePerpendicular(Vector v1, Vector v2) {
+    public static boolean arePerpendicular(Vector v1, Vector v2) throws MatrixDimensionMismatch{
         return dotProduct(v1, v2) == 0;
     }
 
