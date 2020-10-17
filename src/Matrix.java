@@ -136,6 +136,18 @@ public class Matrix {
         return width;
     }
 
+    // Override methods
+
+    @Override
+    public String toString() {
+        String matrixString = "";
+        for (double[] row: this.matrix) {
+            matrixString += Arrays.toString(row) + "\n";
+        }
+        return matrixString;
+    }
+
+
     // Internal classes
 
     public static class MatrixDimensionMismatch extends Exception {
