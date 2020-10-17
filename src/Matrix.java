@@ -70,14 +70,22 @@ public class Matrix {
         }
     }
 
-    public Matrix transverse() {
-
-
-
-        return null;
-    }
-
     // Static Methods
+
+    /**
+     * calculates the transverse of the given matrix
+     * @param A matrix to be transversed
+     * @return the transverse matrix
+     */
+    public static Matrix transverse(Matrix A) {
+        Matrix T = new Matrix(A.getHeight(), A.getWidth());
+        for (int i = 0; i < T.getHeight(); i++) {
+            for (int j = 0; j < T.getWidth(); j++) {
+                T.setValueAt(i, j, A.matrix[j][i]);
+            }
+        }
+        return T;
+    }
 
     /**
      * @param m1 first matrix
@@ -99,12 +107,12 @@ public class Matrix {
         }
     }
 
-    public static Matrix multiply(Matrix m1, Matrix m2) {
-        if (m1.getWidth() == m2.getHeight()) {
-            Matrix m = new Matrix(m1.getHeight(), m2.getWidth());
-        }
-        return null;
-    }
+//    public static Matrix multiply(Matrix m1, Matrix m2) {
+//        if (m1.getWidth() == m2.getHeight()) {
+//            Matrix m = new Matrix(m1.getHeight(), m2.getWidth());
+//        }
+//        return null;
+//    }
 
     public static boolean sameDimensions(Matrix m1, Matrix m2) {
         return m1.getHeight() == m2.getHeight() && m1.getWidth() == m2.getWidth();
