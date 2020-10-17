@@ -1,15 +1,34 @@
 public class Point {
 
-    double x, y, z;
+    double[] coords;
 
-    public Point(double x, double y, double z) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
+    // constructors
+
+    public Point(double[] coords) {
+        this.coords = coords;
     }
 
-    // unfinished
+    public Point(Vector coords) {
+        if (coords != null)
+            this.coords = coords.asList();
+        else
+            this.coords = new double[]{0, 0, 0};
+    }
+
+    public Point() {
+        this(new double[]{0, 0, 0});
+    }
+
+    // methods
     public double distanceFromOrigin() {
-        return 0.0;
+        double sum = 0;
+        for (double num: coords) {
+            sum += Math.pow(num, 2);
+        }
+        return Math.sqrt(sum);
+    }
+
+    public int getDimension() {
+        return coords.length;
     }
 }

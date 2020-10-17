@@ -32,9 +32,11 @@ public class Vector3d implements Comparable<Vector3d> {
     }
 
     public Vector3d(Point endPoint) {
-        this.xComp = endPoint.x;
-        this.yComp = endPoint.y;
-        this.zComp = endPoint.z;
+        if (endPoint.getDimension() == 3) {
+            this.xComp = endPoint.coords[0];
+            this.yComp = endPoint.coords[1];
+            this.zComp = endPoint.coords[2];
+        }
     }
 
     // METHODS
