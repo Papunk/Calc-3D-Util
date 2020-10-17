@@ -23,6 +23,7 @@ public class Matrix {
             this.width = matrix[0].length;
             this.matrix = matrix;
         }
+        //TODO throw error
     }
 
     public Matrix(Vector[] vectorList) throws VectorTypeMismatch{
@@ -119,8 +120,15 @@ public class Matrix {
     }
 
 
+    /**
+     * @return the rows of the matrix as a list of row vectors
+     */
     public Vector[] asVectorList() {
-        return null;
+        Vector[] vectorList = new Vector[getHeight()];
+        for (int i = 0; i < getHeight(); i++) {
+            vectorList[i] = new Vector(matrix[i], false);
+        }
+        return vectorList;
     }
 
     // Setters and Getters
