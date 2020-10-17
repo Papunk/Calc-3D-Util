@@ -40,16 +40,22 @@ public class Vector extends Matrix {
      * @param v1 first vector
      * @param v2 second vector
      * @return returns the dot product of the given vectors
+     * @throws Matrix.MatrixDimensionMismatch is the vectors are not of equal length
      */
-    public static double dotProduct(Vector v1, Vector v2) {
-        if (Matrix.sameDimensions(v1, v2)) {
+    public static double dotProduct(Vector v1, Vector v2) throws MatrixDimensionMismatch{
+        double[] l1 = v1.asList();
+        double[] l2 = v2.asList();
+        if (l1.length == l2.length) {
+            if (v1.isColumnVector() && !v2.isColumnVector()) { // checks what type of vector they are
+                System.out.println("Warning: Vectors are not of the same type. Dot product is not mathematically defined in this way");
+            }
             double sum = 0;
-            for (int i = 0; i < v1.getHeight(); i++) {
-                sum += v1.getValueAt(i) * v2.getValueAt(i);
+            for (int i = 0; i < l1.length; i++) {
+                sum += l1[i] * l2[i];
             }
             return sum;
         }
-        return 0; //TODO throw error
+        throw new MatrixDimensionMismatch("Dot Product");
     }
 
     /**
