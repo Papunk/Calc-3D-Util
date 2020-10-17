@@ -61,6 +61,18 @@ public class Vector extends Matrix {
         return dotProduct(v1, v2) == 0;
     }
 
+    // Override methods
+
+    @Override
+    public String toString() {
+        String vectorString = "<  ";
+        for (double elem: this.asList()) {
+            vectorString += Double.toString(elem) + "  ";
+        }
+        return (isColumnVector()? "col": "row") + ": " + vectorString + ">";
+    }
+
+
     // Setters and Getters
 
     public boolean isColumnVector() {

@@ -145,6 +145,7 @@ public class Matrix {
             matrixString += Arrays.toString(row) + "\n";
         }
         return matrixString;
+        // TODO make this neater
     }
 
 
