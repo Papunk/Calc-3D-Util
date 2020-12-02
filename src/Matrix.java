@@ -37,7 +37,6 @@ public class Matrix {
         //TODO complete this method
 
 
-
     }
 
     // Methods
@@ -153,12 +152,9 @@ public class Matrix {
 
     @Override
     public String toString() {
-        String matrixString = "";
-        for (double[] row: this.matrix) {
-            matrixString += Arrays.toString(row) + "\n";
-        }
-        return matrixString;
-        // TODO make this neater
+        StringBuilder matrixString = new StringBuilder();
+        for (double[] row: this.matrix) matrixString.append(Arrays.toString(row)).append("\n");
+        return matrixString.toString();
     }
 
 
