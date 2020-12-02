@@ -26,17 +26,22 @@ public class Matrix {
         //TODO throw error
     }
 
-    public Matrix(Vector[] vectorList) throws VectorTypeMismatch{
-        boolean vectorType = vectorList[0].isColumnVector();
+    public Matrix(Vector[] vectorList) throws VectorTypeMismatch {
+        boolean type = vectorList[0].isColumnVector();
+
+        this.height = vectorList.length;
+        this.width = vectorList[0].getDimension();
+
+        this.matrix = new double[height][width];
+
+        int i = 0;
         for (Vector v: vectorList) {
-            if (vectorType != v.isColumnVector()) {
+            if (v.isColumnVector() != type || v.getDimension() != width) { // if vectors in the list are of different type
                 throw new VectorTypeMismatch();
             }
+            matrix[i] = v.asList();
+            i++;
         }
-
-        //TODO complete this method
-
-
     }
 
     // Methods

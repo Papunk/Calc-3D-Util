@@ -98,6 +98,7 @@ public class Vector extends Matrix {
         return isColumnVector()? matrix[n][1]:matrix[1][n];
     }
 
+
     /**
      * @return a list of length n containing the elements of this n-vector
      */
